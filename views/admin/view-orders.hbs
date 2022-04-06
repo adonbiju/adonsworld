@@ -1,0 +1,108 @@
+<div id="main">
+    <div class="page-heading">
+        <div class="page-title">
+            <div class="row">
+                <div class="col-12 col-md-6 order-md-1 order-last">
+                    <h3>ALL Order Details</h3>
+                </div>
+            </div>
+        </div>
+        <section class="section">
+            <div class="card">
+                <div class="card-header">
+                    <!--write some eding here -->
+                </div>
+                <div class="card-body">
+                    <table class="table" id="table1">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Customer Name</th>
+                                {{!-- <th>Mobile No</th>
+                                <th>House Name</th>
+                                <th>Area</th>
+                                <th>Pincode</th>
+                                <th>City</th>
+                                <th>State</th> --}}
+                                <th>Total Amount</th>
+                                <th>Method</th>
+                                <th>Status</th>
+                                <th>Manage Order</th>
+                                <th>Option</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#each orders}}
+                            <tr>
+                                <td>{{this.date}}</td>
+                                <td>{{this.deliveryDetails.name}}</td>
+                                {{!-- <td>{{this.deliveryDetails.mobile1}}</td>
+                                <td>{{this.deliveryDetails.house_name}}</td>
+                                <td>{{this.deliveryDetails.area}}</td>
+                                <th>{{this.deliveryDetails.pincode}}</th>
+                                <th>{{this.deliveryDetails.city}}</th>
+                                <th>{{this.deliveryDetails.state}}</th> --}}
+                                <td>{{this.totalAmount}}</td>
+                                <td>{{this.paymentMethod}}</td>
+                                <td class="text-center" ><p id="{{this._id}}" class="text-center">{{this.status}}</p></td>
+                                
+                                {{#if this.cancel}}
+                                <td class="text-center">Order Cancelled</td>
+                                {{else}}
+
+                                {{#if shipped}}
+                                {{#if delivered}}
+                                <td class="text-center">Order delivered</td>
+                                {{else}}
+                                <td class="text-center"><button class="btn-sm btn-dark" id="delivered"  onclick="proceedToDeliver('{{this._id}}')" type="button">Delivered</button></td>
+                                {{/if}}
+                                {{else}}
+                                <td class="text-center"><button class="btn-sm btn-dark" id="shipped"  onclick="proceedToShip('{{this._id}}')" type="button">Shipped</button></td>
+                                {{/if}}
+                                
+                                {{/if}}
+                                <th> <a class="btn btn-sm btn-dark" href="/admin/view-order-products/{{this._id}}">View Product</a></th>
+                            </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </section>
+    </div>
+</div>
+<script>
+     function proceedToShip(orderId){
+     $.ajax({
+         url:'/admin/changeToShiped',
+         method:'post',
+         data:{
+            order: orderId
+         },
+         success:(response)=>{
+          
+                 document.getElementById(orderId).innerHTML= "Shipped"
+                 location.reload()
+                      
+         }
+     })
+ }
+ function proceedToDeliver(orderId){
+     console.log(orderId)
+     $.ajax({
+         url:'/admin/changeToDeliver',
+         method:'post',
+         data:{
+            order: orderId
+         },
+         success:(response)=>{
+                 document.getElementById(orderId).innerHTML = "Delivered"
+                 location.reload()
+
+
+         }
+     })
+ }
+
+</script>

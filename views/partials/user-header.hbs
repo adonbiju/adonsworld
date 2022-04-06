@@ -1,0 +1,48 @@
+ <header class="header bg-white">
+        <div class="container px-0 px-lg-3">
+          <nav class="navbar navbar-expand-lg navbar-light py-3 px-lg-0"><a class="navbar-brand" href="/"><span class="font-weight-bold text-uppercase text-dark">ADON'S WORLD</span></a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                  <!-- Link--><a class="nav-link active" href="/">Home</a>
+                </li>
+                {{#if user_login}}
+                <li class="nav-item">
+                  <!-- Link--><a class="nav-link active" href="/view-order">Order History</a>
+                </li>
+                {{/if}}
+                <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" id="pagesDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Category</a>
+                  <div class="dropdown-menu mt-3" aria-labelledby="pagesDropdown">
+                      <a class="dropdown-item border-0 transition-link" href="/acer-product">Acer</a>
+                      <a class="dropdown-item border-0 transition-link" href="/asus-product">Asus</a>
+                      <a class="dropdown-item border-0 transition-link" href="/Hp-product">Hp</a>
+                      <a class="dropdown-item border-0 transition-link" href="/dell-product">Dell</a>
+                     
+                </li>
+              </ul>
+              <ul class="navbar-nav ml-auto">  
+                {{#if user_login}}             
+                <li class="nav-item">
+                 <a class="nav-link" href="/cart"> <i
+                class="fas fa-dolly-flatbed mr-1 text-gray"></i>Cart(<span class="text-success"
+                id="cart-count">{{cartCount}}</span>)</a>
+                </li>
+                 {{/if}}
+                 {{#if user_login}}
+                <li class="nav-item">
+                    <a class="nav-link" href="/edit-profile"> <i class="fas fa-user-alt mr-1 text-gray"></i>{{user_login.name}}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/logout" onclick="userlogout(event)">Logout</a>
+                </li>
+                {{else}}
+                 <li class="nav-item">
+                    <a class="nav-link" href="/login"> <i class="fas fa-user-alt mr-1 text-gray"></i>Login</a>
+                </li>
+                {{/if}}
+              </ul>
+            </div>
+          </nav>
+        </div>
+</header>
