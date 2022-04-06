@@ -27,6 +27,11 @@ ADON'S WORLD is a Dynamic Ecommerce Web application established using Node.js, E
 # Demo
    *  user:   https://adonsworld.herokuapp.com/
    *  admin:  https://adonsworld.herokuapp.com/admin
+# User Section
+![User Page1](https://user-images.githubusercontent.com/73121965/162023471-d3719e2b-b027-46e0-a41b-8f8d66f4d58b.jpg)
+![User Page2](https://user-images.githubusercontent.com/73121965/162023891-7211a52b-0b02-4823-b3ab-b7023c2763ae.jpg)
+# Admin Section
+![Admin Page1](https://user-images.githubusercontent.com/73121965/162024005-1fd7eea5-5ab5-4d3e-bfd8-6b5818058ad8.jpg)
 # Future Updations :
    *  Coupon Section
    *  Otp login
