@@ -36,14 +36,6 @@ var db=require('./config/connection')
 
 app.use(session({
   secret: 'key',
-  resave:false,
-  saveUninitialized:true,
-  store:Mongostore.create({
-    mongoUrl:`mongodb+srv://adonsworld:redhat@adonsworld.czlrh.mongodb.net`,
-    ttl:2*24*60*60,
-    autoRemove:'native'
-
-  }),
   cookie: { maxAge:600000}
 }))
 //db connection
