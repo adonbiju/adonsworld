@@ -21,7 +21,7 @@ router.get('/',async(req,res)=>{
   if(req.session.user){
     cartCount=await userHelper.getCartCount(req.session.user._id)
   }
-  ProductHelper.getRandomProducts().then((products)=>{
+ await ProductHelper.getRandomProducts().then((products)=>{
     res.render('user/home',{user:true,user_login,cartCount,products})
   })
   // res.render('user/home',{user:true,user_login,cartCount})
