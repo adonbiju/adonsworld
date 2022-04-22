@@ -15,7 +15,7 @@ ADON'S WORLD is a Dynamic Ecommerce Web application established using Hbs(Handle
    *  Address Management
    *  Order History
    *  Product Review
-   *  Related Items
+   *  Related Items :- where user can see the related products of the same category.
    *  Payment Methods :- Cash on Delivery and razorpay payment
 # Features on admin side
    *  login
