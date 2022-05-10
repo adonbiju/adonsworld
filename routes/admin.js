@@ -170,28 +170,27 @@ router.post('/edit-products/:id',(req,res)=>{
   //console.log(req.body);
   productHelper.updateProduct(req.params.id,req.body).then((response)=>{
     //console.log(response);
+    if(req.files){
+      if(req.files.image){
+        let image=req.files.image
+       image.mv('./public/images/'+req.params.id+'.jpg');
+      }
+      if(req.files.image2){
+        let image2=req.files.image2
+       image2.mv('./public/images/'+req.params.id+'second.jpg');
+      }
+      if(req.files.image3){
+        let image3=req.files.image3
+       image3.mv('./public/images/'+req.params.id+'third.jpg');
+      }
+      if(req.files.image4){
+        let image4=req.files.image4
+       image4.mv('./public/images/'+req.params.id+'fourth.jpg');
+      }
+    }
     res.redirect('/admin/all-products')
-    if(req.files.image){
-      let image=req.files.image
-     image.mv('./public/images/'+req.params.id+'.jpg');
-    }
-    if(req.files.image2){
-      let image2=req.files.image2
-     image2.mv('./public/images/'+req.params.id+'second.jpg');
-    }
-    if(req.files.image3){
-      let image3=req.files.image3
-     image3.mv('./public/images/'+req.params.id+'third.jpg');
-    }
-    if(req.files.image4){
-      let image4=req.files.image4
-     image4.mv('./public/images/'+req.params.id+'fourth.jpg');
-    }
-    
-    
   })
 })
-
 
 router.get('/users-list',verifyLogin,async(req,res)=>{
   userlist=await productHelper.getALLusers()
