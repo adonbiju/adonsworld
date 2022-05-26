@@ -360,11 +360,14 @@ router.post('/edit-profile/:id',(req,res)=>{
   //console.log(req.body);
   userHelper.updateProfileDetails(req.params.id,req.body).then((response)=>{
     //console.log(response);
-    res.redirect('/')
+    
+   if(req.files){
     if(req.files.image){
       let image=req.files.image
      image.mv('./public/profile/'+req.params.id+'.jpg');
     } 
+   }
+    res.redirect('/')
   })
 })
 
