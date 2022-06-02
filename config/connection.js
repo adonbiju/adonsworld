@@ -6,7 +6,7 @@ module.exports.connect=function(done){
     
     // const url = "mongodb://localhost:27017";
     // const dbname='shopingcart6'
-    const url="mongodb+srv://adonsworld:redhat@adonsworld.czlrh.mongodb.net"
+    const url=process.env.mongoDBurl;
     const dbname='shopingcart'
 
     MongoClient.connect(url, {useUnifiedTopology: true } ,function(err, data) {

@@ -8,9 +8,10 @@ const { resolve } = require("url");
 const moment = require('moment')
 
 var instance = new Razorpay({
-  key_id: "rzp_test_6igfyhlL3sx93x",
-  key_secret: "cG0Cvs8WzPUPtmDUPMBFkNvs",
+  key_id: process.env.key_id,
+  key_secret: process.env.key_secret
 });
+
 module.exports = {
   doSignup: (userData) => {
     return new Promise(async (resolve, reject) => {
