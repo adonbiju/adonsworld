@@ -1,5 +1,5 @@
 {
-  "name": "node-website",
+  "name": "adonsworld",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -8,7 +8,6 @@
   "dependencies": {
     "@handlebars/allow-prototype-access": "^1.0.5",
     "bcrypt": "^5.0.1",
-    "connect-mongo": "^4.6.0",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "dotenv": "^16.0.1",

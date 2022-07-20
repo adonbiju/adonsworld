@@ -18,7 +18,7 @@ var fileUpload=require('express-fileupload');
 
 //session module
 var session=require('express-session');
-const Mongostore=require('connect-mongo')
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
