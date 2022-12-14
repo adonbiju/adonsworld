@@ -4,6 +4,7 @@ var router = express.Router();
 var ProductHelper=require('../helpers/product-helper');
 const userHelper = require('../helpers/user-helper');
 var UserHelper=require('../helpers/user-helper')
+var db=require('../config/connection');
 
 //Using of midelware
 const verifyLogin=(req,res,next)=>{
@@ -16,14 +17,19 @@ const verifyLogin=(req,res,next)=>{
 }
 
 router.get('/',async(req,res)=>{
-  let user_login=req.session.user;
-  let cartCount=null
-  if(req.session.user){
-    cartCount=await userHelper.getCartCount(req.session.user._id)
+  if(db.get()===null){
+    res.render('user/something-went-wrong')
+  }else{
+    let user_login=req.session.user;
+    let cartCount=null
+    if(req.session.user){
+      cartCount=await userHelper.getCartCount(req.session.user._id)
+    }
+   ProductHelper.getRandomProducts().then((products)=>{
+      res.render('user/home',{user:true,user_login,cartCount,products})
+    })
   }
- ProductHelper.getRandomProducts().then((products)=>{
-    res.render('user/home',{user:true,user_login,cartCount,products})
-  })
+ 
   // res.render('user/home',{user:true,user_login,cartCount})
 })
 
