@@ -26,8 +26,8 @@ ADON'S WORLD is a Dynamic Ecommerce Web application established using Hbs(Handle
    *  Order Manager :- where admin can manage the status of the order
    *  Sales Report
 # Demo
-   *  user:   https://adonsworld.herokuapp.com
-   *  admin:  https://adonsworld.herokuapp.com/admin
+   *  user:   https://adonsworld.onrender.com
+   *  admin:  https://adonsworld.onrender.com/admin
 # User Page
 ![User Page2](/ScreenShots/usersection1.jpg)
 ![User Page3](/ScreenShots/usersection2.jpg)
